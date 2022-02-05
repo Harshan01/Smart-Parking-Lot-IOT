@@ -9,6 +9,20 @@ Smart Parking Lot is built with an array of sensors (ultrasonic sensor, RGB came
 
 In this case, client is a Raspberry Pi 4 with 2 LED lights, 1 ultrasonic sensor, and 1 RGB camera connected via GPIO and Camera Port respectively. When the ultrasonic sensor triggers (based on a threshold), the RGB camera is activated and sends the current frame periodically to the server.
 
+`PIL` and `aiocoap` Python libraries need to be installed.
+
+To run the client, copy the `client` folder onto the Raspberry Pi, and run the below command in the copied folder.
+
+```bash
+python3 sensors.py
+```
+
 ### Server
 
 The server receives the frame, preprocesses it using Pillow and runs the PyTorch model on it for detecting the vehicles. The detections are then sent back to the client and also displayed in the server side. This data can then be used to perform any appropriate action in the Smart Parking Lot.
+
+To run the server, run the below command in the `server` folder.
+
+```bash
+python3 coap_server.py
+```
