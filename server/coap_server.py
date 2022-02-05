@@ -16,7 +16,7 @@ from PIL import Image
 import torch
 
 
-model = torch.hub.load('../yolov5', 'custom',
+model = torch.hub.load('ultralytics/yolov5', 'custom',
                        path='models/yolov5s_b50_s416.pt',
                        source='local')
 model.conf = 0.5
